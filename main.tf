@@ -3,7 +3,7 @@ module "rgs" {
   for_each = var.rg_details
   name     = each.value.name
   location = coalesce(each.value.location, "Central_US")
-  tags     = coalesce(each.value.tags, {})
+  tags     = coalesce(each.value.tags, var.common_tags, {})
 }
 
 
@@ -14,6 +14,6 @@ module "networks" {
   address_space       = each.value.vnet_address_space
   location            = module.rgs[each.value.resource_group_key].resource_group_location
   resource_group_name = module.rgs[each.value.resource_group_key].resource_group_name
-  tags                = coalesce(each.value.tags, {})
+  tags                = coalesce(each.value.tags, var.common_tags, {})
   subnets             = each.value.subnets
 }

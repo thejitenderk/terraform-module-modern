@@ -1,3 +1,7 @@
+variable "common_tags" {
+  type = map(string)
+}
+
 variable "vnet_details" {
   type = map(object({
     vnet_name          = string

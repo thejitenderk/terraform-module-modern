@@ -1,3 +1,8 @@
+common_tags = {
+  Owner = "jk-team"
+  Env   = "dev"
+}
+
 rg_details = {
   "map-rg1" = {
     name     = "rg-map-dev-001"
