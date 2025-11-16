@@ -8,16 +8,16 @@ output "vnet_name" {
   value       = azurerm_virtual_network.virtual_network.name
 }
 
-output "subnet_names" {
-  description = "Names of all subnets in the virtual network"
-  value       = [
-    for s in azurerm_virtual_network.virtual_network.subnet : s.name
-  ]
+# Output the subnet IDs as a map keyed by subnet name
+output "subnet_ids" {
+  description = "Map of subnet names to their IDs"
+  value = {
+    for s in azurerm_virtual_network.virtual_network.subnet : s.name => s.id
+  }
 }
 
-output "subnet_ids" {
-  description = "IDs of all subnets created in the virtual network"
-  value = [
-    for s in azurerm_virtual_network.virtual_network.subnet : s.id
-  ]
+# Optional: Output subnet names as a list
+output "subnet_names" {
+  description = "List of subnet names in the virtual network"
+  value       = [for s in azurerm_virtual_network.virtual_network.subnet : s.name]
 }
