@@ -39,3 +39,23 @@ variable "vm_details" {
     tags               = optional(map(string))
   }))
 }
+
+
+variable "nsg_details" {
+  type = map(object({
+    name                   = string
+    resource_group_key     = string
+    network_interface_name = string
+    tags                   = optional(map(string))
+    security_rules = map(object({
+      priority         = number
+      direction        = optional(string, "Inbound")
+      access           = optional(string, "Allow")
+      protocol         = optional(string, "Tcp")
+      source_range     = optional(string, "*")
+      dest_range       = optional(string, "*")
+      address_prefixes = optional(string, "*")
+      dest_prefixes    = optional(string, "*")
+    }))
+  }))
+}

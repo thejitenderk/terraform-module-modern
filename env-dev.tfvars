@@ -36,12 +36,31 @@ vm_details = {
     network_key        = "map-vnet1"
     subnet_key         = "frontend-subnet"
   }
-  backendvm = {
+  "backendvm" = {
     nic_name           = "nic-backend-dev-001"
     admin_username     = "adminuser"
     admin_password     = "P@ssw0rd1234!"
     resource_group_key = "map-rg1"
     network_key        = "map-vnet1"
     subnet_key         = "backend-subnet"
+  }
+}
+
+
+nsg_details = {
+  nsg1 = {
+    name                   = "nsg-dev-001"
+    resource_group_key     = "map-rg1"
+    network_interface_name = "frontuivm"
+    security_rules = {
+      allow_ssh_htpp = {
+        priority   = 100
+        dest_range = "22"
+      }
+      allow_http = {
+        priority   = 200
+        dest_range = "80"
+      }
+    }
   }
 }

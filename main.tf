@@ -34,3 +34,15 @@ module "linux_virtual_machine" {
   image_sku           = coalesce(each.value.image_sku, "18.04-LTS")
   tags                = coalesce(each.value.tags, var.common_tags, {})
 }
+
+
+module "network_security_groups" {
+  source                 = "./modules/azurerm_nsg_with_rules"
+  for_each               = var.nsg_details
+  nsg_name               = each.value.name
+  location               = module.rgs[each.value.resource_group_key].resource_group_location
+  resource_group_name    = module.rgs[each.value.resource_group_key].resource_group_name
+  security_rules         = each.value.security_rules
+  network_interface_name = module.linux_virtual_machine[each.value.network_interface_name].network_interface_id
+  tags                   = coalesce(each.value.tags, var.common_tags, {})
+}
