@@ -8,9 +8,9 @@ variable "vnet_details" {
     vnet_address_space = list(string)
     resource_group_key = string
     tags               = optional(map(string))
-    subnets = map(object({
+    subnets = optional(map(object({
       address_prefixes = list(string)
-    }))
+    })), {})
   }))
 }
 

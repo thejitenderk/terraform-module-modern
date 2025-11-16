@@ -17,3 +17,4 @@ module "networks" {
   tags                = coalesce(each.value.tags, var.common_tags, {})
   subnets             = each.value.subnets
 }
+
