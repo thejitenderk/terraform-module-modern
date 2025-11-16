@@ -33,7 +33,7 @@ vm_details = {
     admin_username     = "adminuser"
     admin_password     = "P@ssw0rd1234!"
     resource_group_key = "map-rg1"
-    network_key        = "map-vnet1"
+    network_key        = "vnet-dev-001"
     subnet_key         = "frontend-subnet"
   }
   backendvm = {

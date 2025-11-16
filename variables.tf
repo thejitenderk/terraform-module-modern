@@ -36,6 +36,6 @@ variable "vm_details" {
     image_publisher    = optional(string)
     image_offer        = optional(string)
     image_sku          = optional(string)
-    tags               = optional(string)
+    tags               = optional(map(string))
   }))
 }
