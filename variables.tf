@@ -22,3 +22,20 @@ variable "rg_details" {
     tags     = optional(map(string))
   }))
 }
+
+
+variable "vm_details" {
+  type = map(object({
+    nic_name           = string
+    admin_username     = string
+    admin_password     = string
+    resource_group_key = string
+    network_key        = string
+    subnet_key         = string
+    vm_size            = optional(string)
+    image_publisher    = optional(string)
+    image_offer        = optional(string)
+    image_sku          = optional(string)
+    tags               = optional(string)
+  }))
+}

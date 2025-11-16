@@ -27,3 +27,21 @@ vnet_details = {
   }
 }
 
+vm_details = {
+  "frontuivm" = {
+    nic_name           = "nic-frontui-dev-001"
+    admin_username     = "adminuser"
+    admin_password     = "P@ssw0rd1234!"
+    resource_group_key = "map-rg1"
+    network_key        = "map-vnet1"
+    subnet_key         = "frontend-subnet"
+  }
+  backendvm = {
+    nic_name           = "nic-backend-dev-001"
+    admin_username     = "adminuser"
+    admin_password     = "P@ssw0rd1234!"
+    resource_group_key = "map-rg1"
+    network_key        = "map-vnet1"
+    subnet_key         = "backend-subnet"
+  }
+}

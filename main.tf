@@ -18,3 +18,19 @@ module "networks" {
   subnets             = each.value.subnets
 }
 
+module "linux_virtual_machine" {
+  source              = "./modules/azurerm_lvm"
+  for_each            = var.vm_details
+  name                = each.key
+  resource_group_name = module.rgs[each.value.resource_group_key].resource_group_name
+  location            = module.rgs[each.value.resource_group_key].resource_group_location
+  nic_name            = each.value.nic_name
+  subnet_id           = module.networks[each.value.network_key].subnet_ids[each.value.subnet_key]
+  size                = coalesce(each.value.vm_size, "Standard_B1s")
+  admin_username      = each.value.admin_username
+  admin_password      = each.value.admin_password
+  image_publisher     = coalesce(each.value.image_publisher, "Canonical")
+  image_offer         = coalesce(each.value.image_offer, "UbuntuServer")
+  image_sku           = coalesce(each.value.image_sku, "18.04-LTS")
+  tags                = coalesce(each.value.tags, var.common_tags, {})
+}
