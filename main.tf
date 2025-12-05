@@ -18,7 +18,7 @@ module "networks" {
   name                = each.value.vnet_name
   address_space       = each.value.vnet_address_space
   location            = coalesce(each.value.location, "Central_US")
-  resource_group_name = data.existing_resource_group.rgs.name
+  resource_group_name = data.azurerm_resource_group.rgs.name
   tags                = coalesce(each.value.tags, var.common_tags, {})
   subnets             = each.value.subnets
 }
@@ -27,7 +27,7 @@ module "linux_virtual_machine" {
   source              = "./modules/azurerm_lvm"
   for_each            = var.vm_details
   name                = each.key
-  resource_group_name = data.existing_resource_group.rgs.name
+  resource_group_name = data.azurerm_resource_group.rgs.name
   location            = coalesce(each.value.location, "Central_US")
   nic_name            = each.value.nic_name
   subnet_id           = module.networks[each.value.network_key].subnet_ids[each.value.subnet_key]
@@ -46,7 +46,7 @@ module "network_security_groups" {
   for_each               = var.nsg_details
   nsg_name               = each.value.name
   location               = coalesce(each.value.location, "Central_US")
-  resource_group_name    = data.existing_resource_group.rgs.name
+  resource_group_name    = data.azurerm_resource_group.rgs.name
   security_rules         = each.value.security_rules
   network_interface_name = module.linux_virtual_machine[each.value.network_interface_name].network_interface_id
   tags                   = coalesce(each.value.tags, var.common_tags, {})
@@ -57,7 +57,7 @@ module "mssqlservers" {
   source                       = "./modules/azurerm_mssql_server"
   for_each                     = var.sql_server_details
   mssql_server_name            = each.key
-  resource_group_name          = data.existing_resource_group.rgs.name
+  resource_group_name          = data.azurerm_resource_group.rgs.name
   location                     = coalesce(each.value.location, "Central_US")
   administrator_login          = each.value.administrator_login
   administrator_login_password = each.value.administrator_login_password
