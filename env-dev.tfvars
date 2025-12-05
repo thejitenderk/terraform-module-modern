@@ -64,3 +64,13 @@ nsg_details = {
     }
   }
 }
+
+sql_server_details = {
+  "mssqldb1" = {
+    resource_group_key           = "rg-map-dev-001"
+    administrator_login          = "sqladminuser"
+    administrator_login_password = "P@ssw0rd1234!"
+  }
+}
+
+
