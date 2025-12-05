@@ -7,10 +7,12 @@
 # }
 
 data "azurerm_resource_group" "rgs" {
-  name     = "kml_rg_main-510c827a70754e1e"
+  name     = var.resource_group_key
 }
 
-
+variable "resource_group_key" {
+  type = string
+}
 
 module "networks" {
   source              = "./modules/azurerm_networks"

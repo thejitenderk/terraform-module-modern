@@ -6,7 +6,7 @@ variable "vnet_details" {
   type = map(object({
     vnet_name          = string
     vnet_address_space = list(string)
-
+    location           = optional(string)
     tags               = optional(map(string))
     subnets = optional(map(object({
       address_prefixes = list(string)
@@ -26,17 +26,17 @@ variable "vnet_details" {
 
 variable "vm_details" {
   type = map(object({
-    nic_name           = string
-    admin_username     = string
-    admin_password     = string
-
-    network_key        = string
-    subnet_key         = string
-    vm_size            = optional(string)
-    image_publisher    = optional(string)
-    image_offer        = optional(string)
-    image_sku          = optional(string)
-    tags               = optional(map(string))
+    nic_name        = string
+    admin_username  = string
+    admin_password  = string
+    location        = optional(string)
+    network_key     = string
+    subnet_key      = string
+    vm_size         = optional(string)
+    image_publisher = optional(string)
+    image_offer     = optional(string)
+    image_sku       = optional(string)
+    tags            = optional(map(string))
   }))
 }
 
@@ -44,7 +44,7 @@ variable "vm_details" {
 variable "nsg_details" {
   type = map(object({
     name                   = string
-   
+    location               = optional(string)
     network_interface_name = string
     tags                   = optional(map(string))
     security_rules = map(object({
@@ -63,7 +63,7 @@ variable "nsg_details" {
 
 variable "sql_server_details" {
   type = map(object({
-    
+
     location                     = optional(string)
     administrator_login          = string
     administrator_login_password = string

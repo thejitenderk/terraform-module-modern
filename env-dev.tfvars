@@ -10,6 +10,7 @@ common_tags = {
 #   }
 # }
 
+resource_group_key = "kml_rg_main-510c827a70754e1e"
 
 vnet_details = {
   "map-vnet1" = {
