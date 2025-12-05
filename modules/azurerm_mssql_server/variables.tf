@@ -10,9 +10,6 @@ variable "location" {
   type = string
 }
 
-variable "mssql_version" {
-  type = string
-}
 
 variable "administrator_login" {
   type = string
@@ -20,9 +17,4 @@ variable "administrator_login" {
 
 variable "administrator_login_password" {
   type = string
-}
-
-
-variable "tags" {
-  type = map(string)
 }

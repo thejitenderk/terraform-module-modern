@@ -46,3 +46,15 @@ module "network_security_groups" {
   network_interface_name = module.linux_virtual_machine[each.value.network_interface_name].network_interface_id
   tags                   = coalesce(each.value.tags, var.common_tags, {})
 }
+
+
+module "mssqlservers" {
+  source                       = "./modules/azurerm_mssql_server"
+  for_each                     = var.sql_server_details
+  mssql_server_name            = each.key
+  resource_group_name          = module.rgs[each.value.resource_group_key].resource_group_name
+  location                     = coalesce(each.value.location, "Central_US")
+  administrator_login          = each.value.administrator_login
+  administrator_login_password = each.value.administrator_login_password
+}
+
