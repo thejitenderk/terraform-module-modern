@@ -63,7 +63,6 @@ variable "nsg_details" {
 
 variable "sql_server_details" {
   type = map(object({
-    mssql_server_name            = string
     resource_group_key           = string
     location                     = optional(string)
     administrator_login          = string
