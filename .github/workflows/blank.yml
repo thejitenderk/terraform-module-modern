@@ -13,9 +13,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,7 +21,7 @@ jobs:
     name: Terraform Init & Plan
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: dev
+
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -43,6 +40,7 @@ jobs:
         uses: Azure/login@v2.3.0
         with:
           creds: ${{ secrets.AZURE_CREDS }}
+          enable-AzPSSession: false
 
       - name: Terraform Init
         run: terraform init
