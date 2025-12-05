@@ -6,7 +6,7 @@
 #   tags     = coalesce(each.value.tags, var.common_tags, {})
 # }
 
-data "existing_resource_group" "rgs" {
+data "azurerm_resource_group" "rgs" {
   name     = "kml_rg_main-510c827a70754e1e"
 }
 
