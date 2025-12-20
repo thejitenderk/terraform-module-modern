@@ -1,18 +1,13 @@
-# module "rgs" {
-#   source   = "./modules/azurerm_rg"
-#   for_each = var.rg_details
-#   name     = each.value.name
-#   location = coalesce(each.value.location, "Central_US")
-#   tags     = coalesce(each.value.tags, var.common_tags, {})
-# }
+module "rgs" {
+   source   = "./modules/azurerm_rg"
+   for_each = var.rg_details
+   name     = each.value.name
+   location = coalesce(each.value.location, "Central_US")
+   tags     = coalesce(each.value.tags, var.common_tags, {})
+ }
 
-data "azurerm_resource_group" "rgs" {
-  name     = var.resource_group_key
-}
 
-variable "resource_group_key" {
-  type = string
-}
+
 
 module "networks" {
   source              = "./modules/azurerm_networks"
