@@ -3,14 +3,13 @@ common_tags = {
   Env   = "dev"
 }
 
-# rg_details = {
-#   "map-rg1" = {
-#     name     = "rg-map-dev-001"
-#     location = "East US"
-#   }
-# }
+rg_details = {
+   "map-rg1" = {
+     name     = "rg-map-dev-001"
+     location = "East US"
+   }
+ }
 
-resource_group_key = "kml_rg_main-510c827a70754e1e"
 
 vnet_details = {
   "map-vnet1" = {
