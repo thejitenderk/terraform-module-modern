@@ -15,7 +15,7 @@ vnet_details = {
   "map-vnet1" = {
     vnet_name          = "vnet-dev-001"
     vnet_address_space = ["10.0.0.0/16"]
-
+    resource_group_key = "map-rg1"
     subnets = {
       frontend-subnet = {
         address_prefixes = ["10.0.1.0/24"]
@@ -32,7 +32,7 @@ vm_details = {
     nic_name           = "nic-frontui-dev-001"
     admin_username     = "adminuser"
     admin_password     = "P@ssw0rd1234!"
-   
+    resource_group_key = "map-rg1"   
     network_key        = "map-vnet1"
     subnet_key         = "frontend-subnet"
   }
@@ -40,7 +40,7 @@ vm_details = {
     nic_name           = "nic-backend-dev-001"
     admin_username     = "adminuser"
     admin_password     = "P@ssw0rd1234!"
-  
+    resource_group_key = "map-rg1"
     network_key        = "map-vnet1"
     subnet_key         = "backend-subnet"
   }
@@ -50,7 +50,7 @@ vm_details = {
 nsg_details = {
   nsg1 = {
     name                   = "nsg-dev-001"
-    
+    resource_group_key = "map-rg1"
     network_interface_name = "frontuivm"
     security_rules = {
       allow_ssh_htpp = {
@@ -67,7 +67,7 @@ nsg_details = {
 
 sql_server_details = {
   "mssqldb1" = {
-    
+    resource_group_key = "map-rg1" 
     administrator_login          = "sqladminuser"
     administrator_login_password = "P@ssw0rd1234!"
   }
