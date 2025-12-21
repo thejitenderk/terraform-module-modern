@@ -1,0 +1,24 @@
+name: Terraform Infra
+
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #   - main
+  #   - feature/**
+  # pull_request:
+  #   branches:
+  #   - main
+  #   - feature/**
+
+jobs:
+  terraformsetup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World
+        run: echo "Hello World"
+  
+
+
+
+
+
