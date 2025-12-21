@@ -6,6 +6,7 @@ terraform {
     }
   }
  backend "azurerm" {
+  resource_group_name = "neha_rg"
   storage_account_name = "nehasg"
   container_name = "nehacontainer"
   key = "action.terraform.tfstate"
