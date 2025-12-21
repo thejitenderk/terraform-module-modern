@@ -34,7 +34,12 @@ jobs:
       - name: Terraform Init & Plan
         run: |
           terraform init
-          terraform plan
+          terraform plan --var-file=env-dev.tfvars -out=tfplan
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: tfplan
+          path: tfplan
 
   TFScan:
     permissions:
