@@ -6,7 +6,7 @@ common_tags = {
 rg_details = {
   "map-rg1" = {
     name     = "rg-map-dev-001"
-    location = "East US"
+    location = "uk south"
   }
 }
 

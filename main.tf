@@ -2,7 +2,7 @@ module "rgs" {
    source   = "./modules/azurerm_rg"
    for_each = var.rg_details
    name     = each.value.name
-   location = coalesce(each.value.location, "centralindia")
+   location = coalesce(each.value.location, "uk south")
    tags     = coalesce(each.value.tags, var.common_tags, {})
  }
 
@@ -14,7 +14,7 @@ module "networks" {
   for_each            = var.vnet_details
   name                = each.value.vnet_name
   address_space       = each.value.vnet_address_space
-  location            = coalesce(each.value.location, "centralindia")
+  location            = coalesce(each.value.location, "uk south")
   resource_group_name = module.rgs[each.value.resource_group_key].resource_group_name
   tags                = coalesce(each.value.tags, var.common_tags, {})
   subnets             = each.value.subnets
@@ -25,7 +25,7 @@ module "linux_virtual_machine" {
   for_each            = var.vm_details
   name                = each.key
   resource_group_name = module.rgs[each.value.resource_group_key].resource_group_name
-  location            = coalesce(each.value.location, "centralindia")
+  location            = coalesce(each.value.location, "uk south")
   nic_name            = each.value.nic_name
   subnet_id           = module.networks[each.value.network_key].subnet_ids[each.value.subnet_key]
   size                = coalesce(each.value.vm_size, "Standard_B1s")
