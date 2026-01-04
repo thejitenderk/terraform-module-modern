@@ -6,6 +6,7 @@ variable "vnet_details" {
   type = map(object({
     vnet_name          = string
     vnet_address_space = list(string)
+    resource_group_key = string
     location           = optional(string)
     tags               = optional(map(string))
     subnets = optional(map(object({
@@ -26,17 +27,18 @@ variable "rg_details" {
 
 variable "vm_details" {
   type = map(object({
-    nic_name        = string
-    admin_username  = string
-    admin_password  = string
-    location        = optional(string)
-    network_key     = string
-    subnet_key      = string
-    vm_size         = optional(string)
-    image_publisher = optional(string)
-    image_offer     = optional(string)
-    image_sku       = optional(string)
-    tags            = optional(map(string))
+    nic_name           = string
+    admin_username     = string
+    admin_password     = string
+    location           = optional(string)
+    network_key        = string
+    resource_group_key = string
+    subnet_key         = string
+    vm_size            = optional(string)
+    image_publisher    = optional(string)
+    image_offer        = optional(string)
+    image_sku          = optional(string)
+    tags               = optional(map(string))
   }))
 }
 
