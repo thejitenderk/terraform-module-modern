@@ -47,30 +47,30 @@ vm_details = {
 }
 
 
-nsg_details = {
-  nsg1 = {
-    name                   = "nsg-dev-001"
-    resource_group_key     = "map-rg1"
-    network_interface_name = "frontuivm"
-    security_rules = {
-      allow_ssh_htpp = {
-        priority   = 100
-        dest_range = "22"
-      }
-      allow_http = {
-        priority   = 200
-        dest_range = "80"
-      }
-    }
-  }
-}
+# nsg_details = {
+#   nsg1 = {
+#     name                   = "nsg-dev-001"
+#     resource_group_key     = "map-rg1"
+#     network_interface_name = "frontuivm"
+#     security_rules = {
+#       allow_ssh_htpp = {
+#         priority   = 100
+#         dest_range = "22"
+#       }
+#       allow_http = {
+#         priority   = 200
+#         dest_range = "80"
+#       }
+#     }
+#   }
+# }
 
-sql_server_details = {
-  "mssqldb1" = {
-    resource_group_key           = "map-rg1"
-    administrator_login          = "sqladminuser"
-    administrator_login_password = "P@ssw0rd1234!"
-  }
-}
+# sql_server_details = {
+#   "mssqldb1" = {
+#     resource_group_key           = "map-rg1"
+#     administrator_login          = "sqladminuser"
+#     administrator_login_password = "P@ssw0rd1234!"
+#   }
+# }
 
 
