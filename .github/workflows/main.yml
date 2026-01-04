@@ -1,6 +1,7 @@
 name: Terraform Infra
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
   push:
     branches:
     - main
@@ -56,6 +57,3 @@ jobs:
   #         GITHUB_TOKEN: ${{ secrets.JKGITHUB_TOKEN }}
   #         VALIDATE_ALL_CODEBASE: false
   #         VALIDATE_CHECKOV: true
-
-
-
