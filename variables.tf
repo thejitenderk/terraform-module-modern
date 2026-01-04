@@ -15,13 +15,13 @@ variable "vnet_details" {
 }
 
 
-# variable "rg_details" {
-#   type = map(object({
-#     name     = string
-#     location = optional(string)
-#     tags     = optional(map(string))
-#   }))
-# }
+variable "rg_details" {
+  type = map(object({
+    name     = string
+    location = optional(string)
+    tags     = optional(map(string))
+  }))
+}
 
 
 variable "vm_details" {
@@ -41,31 +41,31 @@ variable "vm_details" {
 }
 
 
-variable "nsg_details" {
-  type = map(object({
-    name                   = string
-    location               = optional(string)
-    network_interface_name = string
-    tags                   = optional(map(string))
-    security_rules = map(object({
-      priority         = number
-      direction        = optional(string, "Inbound")
-      access           = optional(string, "Allow")
-      protocol         = optional(string, "Tcp")
-      source_range     = optional(string, "*")
-      dest_range       = optional(string, "*")
-      address_prefixes = optional(string, "*")
-      dest_prefixes    = optional(string, "*")
-    }))
-  }))
-}
+# variable "nsg_details" {
+#   type = map(object({
+#     name                   = string
+#     location               = optional(string)
+#     network_interface_name = string
+#     tags                   = optional(map(string))
+#     security_rules = map(object({
+#       priority         = number
+#       direction        = optional(string, "Inbound")
+#       access           = optional(string, "Allow")
+#       protocol         = optional(string, "Tcp")
+#       source_range     = optional(string, "*")
+#       dest_range       = optional(string, "*")
+#       address_prefixes = optional(string, "*")
+#       dest_prefixes    = optional(string, "*")
+#     }))
+#   }))
+# }
 
 
-variable "sql_server_details" {
-  type = map(object({
+# variable "sql_server_details" {
+#   type = map(object({
 
-    location                     = optional(string)
-    administrator_login          = string
-    administrator_login_password = string
-  }))
-}
+#     location                     = optional(string)
+#     administrator_login          = string
+#     administrator_login_password = string
+#   }))
+# }

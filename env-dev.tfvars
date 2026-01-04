@@ -4,11 +4,11 @@ common_tags = {
 }
 
 rg_details = {
-   "map-rg1" = {
-     name     = "rg-map-dev-001"
-     location = "East US"
-   }
- }
+  "map-rg1" = {
+    name     = "rg-map-dev-001"
+    location = "East US"
+  }
+}
 
 
 vnet_details = {
@@ -32,25 +32,25 @@ vm_details = {
     nic_name           = "nic-frontui-dev-001"
     admin_username     = "adminuser"
     admin_password     = "P@ssw0rd1234!"
-    resource_group_key = "map-rg1"   
+    resource_group_key = "map-rg1"
     network_key        = "map-vnet1"
     subnet_key         = "frontend-subnet"
   }
-  "backendvm" = {
-    nic_name           = "nic-backend-dev-001"
-    admin_username     = "adminuser"
-    admin_password     = "P@ssw0rd1234!"
-    resource_group_key = "map-rg1"
-    network_key        = "map-vnet1"
-    subnet_key         = "backend-subnet"
-  }
+  # "backendvm" = {
+  #   nic_name           = "nic-backend-dev-001"
+  #   admin_username     = "adminuser"
+  #   admin_password     = "P@ssw0rd1234!"
+  #   resource_group_key = "map-rg1"
+  #   network_key        = "map-vnet1"
+  #   subnet_key         = "backend-subnet"
+  # }
 }
 
 
 nsg_details = {
   nsg1 = {
     name                   = "nsg-dev-001"
-    resource_group_key = "map-rg1"
+    resource_group_key     = "map-rg1"
     network_interface_name = "frontuivm"
     security_rules = {
       allow_ssh_htpp = {
@@ -67,7 +67,7 @@ nsg_details = {
 
 sql_server_details = {
   "mssqldb1" = {
-    resource_group_key = "map-rg1" 
+    resource_group_key           = "map-rg1"
     administrator_login          = "sqladminuser"
     administrator_login_password = "P@ssw0rd1234!"
   }
